@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import List from "./components/List/List";
+import NewListItem from "./components/NewListItem/NewListItem";
 function App() {
+  const saveListData = (newListItem) => {
+    console.log("IN APP", newListItem);
+  };
+  const list = [
+    { title: "Intellectual", description: "Task for my left brain" },
+    { title: "Physical", description: "Tasks for keeping fit" },
+    { title: "Creativity", description: "Task for my right brain" },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <List list={list} />
+      <NewListItem onSaveListData={(neewListData) => saveListData} />
     </div>
   );
 }
